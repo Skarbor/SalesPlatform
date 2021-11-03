@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: products-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productsservice
+  template:
+    metadata:
+      labels:
+        app: productsservice
+    spec:
+      containers:
+        - name: productsservice
+          image: adamsdockerhub1/productsservice:latest
